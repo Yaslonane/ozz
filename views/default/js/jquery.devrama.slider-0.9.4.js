@@ -58,7 +58,7 @@
 			positionControl: 'left-right', // 'left-right', 'top-center', 'bottom-center', 'top-left', 'top-right', 'bottom-left', 'bottom-right'
 			transition: 'slide-left', //random, slide-left, slide-right, slide-top, slide-bottom, fade, split, split3d, door, wave-left, wave-right, wave-top, wave-bottom
 			showProgress: true,
-			progressColor: '#6BC676',
+			progressColor: '#cc0000',
 			pauseOnHover: true,
 			onReady: undefined
 			

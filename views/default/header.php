@@ -8,8 +8,10 @@
 <!-- //for-mobile-apps -->
 <link href="<?php echo TMPL; ?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?php echo TMPL; ?>css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php echo LIB; ?>/fancybox/jquery.fancybox.css" type="text/css" media="screen" /> 
 <!-- js -->
 <script type="text/javascript" src="<?php echo TMPL; ?>js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="<?php echo LIB; ?>/salvattore.min.js"></script>
 <!-- //js -->
 <!-- banner-slider -->
 <script type="text/javascript" src="<?php echo TMPL; ?>js/jquery.devrama.slider-0.9.4.js"></script>
@@ -42,7 +44,11 @@
 <!-- header -->
 	<div class="header">
 		<div class="container">
+                            <div>
+                                <a href="index.html"><img class="img-responsive" src="<?php echo DOMAIN; ?>/img/logo FI ozz.png"/></a>
+                            </div>
 			<nav class="navbar navbar-default">
+                           
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -52,7 +58,7 @@
 					<span class="icon-bar"></span>
 				  </button>
 					<div class="logo">
-						<h1><a class="navbar-brand" href="index.html">Acreage</a></h1>
+						<h1><a class="navbar-brand" href="index.html"><img height="45" src="<?php echo DOMAIN; ?>/img/icon ozz.png"/></a></h1>
 					</div>
 				</div>
 

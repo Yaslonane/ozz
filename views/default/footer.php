@@ -54,6 +54,13 @@
 <!-- //footer -->
 <!-- for bootstrap working -->
 	<script src="<?php echo TMPL; ?>js/bootstrap.js"></script>
+        <script src="<?php echo LIB; ?>/jmosaicflow/jquery.mosaicflow.min.js"></script> 
+        <script type="text/javascript" src="<?php echo LIB; ?>/fancybox/jquery.fancybox.pack.js"></script> 
+        <script type="text/javascript"> 
+          $(document).ready(function() { 
+            $("a.fancyimage").fancybox(); 
+          }); 
+        </script> 
 <!-- //for bootstrap working -->
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">

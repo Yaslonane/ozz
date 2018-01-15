@@ -25,7 +25,7 @@ class PortfolioController {
         //$portfolio = portfolio::getAlbumByID($id); //вывод 
         echo $id;
         
-        //require_once(ROOT . TMPL .'portfolio_only.php');
+        require_once(ROOT . TMPL .'portfolio_only.php');
         
         return true;
     }
