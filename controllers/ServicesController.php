@@ -6,7 +6,7 @@
  */
 class ServicesController{
     //put your code here
-    public static $title = "OZZ | Услуги";
+    public static $title = "Услуги";
         /*
          * 
          * вывод страницы
@@ -16,10 +16,12 @@ class ServicesController{
     
     public function actionView($id=1) { //функция вывода одного товара с подробным описание по Id
         
-        $srvlst = Services::getServicesLst();
-        $service = Services::getServiceById($id);
+        //$srvlst = Services::getServicesLst();
+        //$service = Services::getServiceById($id);
+        echo $id;
+        $name = "Услуга номер раз";
         
-        require_once(ROOT . TMPL . 'service_single.php'); //вызываем файл вида страницы с товаром и передаем Id
+        require_once(ROOT . TMPL . 'service_only.php'); //вызываем файл вида страницы с товаром и передаем Id
         
         return true;
     }

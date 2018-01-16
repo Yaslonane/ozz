@@ -62,7 +62,7 @@ class UserController {
         $email = '';
         $password = '';
         
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
         
         if(isset($_POST['submit'])){
             $email = $_POST['email'];

@@ -8,7 +8,7 @@ class PortfolioController {
     
 //put your code here
     
-    public static $title = "OZZ";
+    public static $title = "Портфолио";
     
     
     public function actionIndex() { 

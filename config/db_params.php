@@ -8,7 +8,7 @@
 
 return array(
     'host' => 'zashchepkin.ru',//'zashchepkin.ru',
-    'dbname' => 'avto',
+    'dbname' => 'ozz',
     'user' => 'andrey',
     'password' => 'A1qwerty',//A1qwerty',
 );

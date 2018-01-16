@@ -45,7 +45,7 @@
 	<div class="header">
 		<div class="container">
                             <div>
-                                <a href="index.html"><img class="img-responsive" src="<?php echo DOMAIN; ?>/img/logo FI ozz.png"/></a>
+                                <a href="/"><img class="img-responsive" src="<?php echo DOMAIN; ?>/img/logo FI ozz.png"/></a>
                             </div>
 			<nav class="navbar navbar-default">
                            
@@ -66,11 +66,11 @@
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--francisco">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="/" class="menu__link"><span class="menu__helper">Home</span></a></li>
-							<li class="menu__item"><a href="portfolio" class="menu__link"><span class="menu__helper">portfolio</span></a></li>
-							<li class="menu__item"><a href="short-codes.html" class="menu__link"><span class="menu__helper">Short Codes</span></a></li>
-							<li class="menu__item"><a href="gallery.html" class="menu__link"><span class="menu__helper">Gallery</span></a></li>
-							<li class="menu__item"><a href="mail.html" class="menu__link"><span class="menu__helper">Mail Us</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Главная"):?> menu__item--current <?php endif;?>"><a href="/" class="menu__link"><span class="menu__helper">Home</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Портфолио"):?> menu__item--current <?php endif;?>"><a href="portfolio" class="menu__link"><span class="menu__helper">portfolio</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Услуги"):?> menu__item--current <?php endif;?>"><a href="services" class="menu__link"><span class="menu__helper">Services</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Отзывы"):?> menu__item--current <?php endif;?>"><a href="reviews" class="menu__link"><span class="menu__helper">Reviews</span></a></li>
+							<li class="menu__item <?php if(self::$title == "О себе"):?> menu__item--current <?php endif;?>"><a href="about" class="menu__link"><span class="menu__helper">about</span></a></li>
 						</ul>
 					</nav>
 					<div class="phone">

@@ -12,14 +12,14 @@ return array(
     
     
     
-    'blogs/page-([0-9]+)' => 'blogs/index/$1',
+    /*'blogs/page-([0-9]+)' => 'blogs/index/$1',
     'blogs/category/([0-9]+)/page-([0-9]+)' => 'blogs/category/$1/$2',
     'blogs/category/([0-9]+)' => 'blogs/category/$1',
     'blogs' => 'blogs/index',
     'blog/([0-9]+)' => 'blogs/view/$1',   
 
     'cabinet/edit' => 'cabinet/edit',
-    'cabinet' => 'cabinet/index',
+    'cabinet' => 'cabinet/index',*/
     'login' => 'User/login',
     'logout' => 'User/logout',
     
@@ -52,20 +52,19 @@ return array(
     //'adminpanel/cabinet/([0-9]+)' => 'AdminPanel/cabinet/$1',
     
     'adminpanel' => 'Adminpanel/index',
-    'services/([0-9]+)' => 'services/view/$1',
     
-    'services' => 'services/index',  
-    'gallery' => 'gallery/index',
-    'feedback' => 'feedback/index',
+    'services/([0-9]+)' => 'services/view/$1',  
+    'services' => 'services/view',  
+    'reviews' => 'site/reviews',
     'about' => 'site/about',
-    'uploads' => 'site/uploads',
-    
-    
-    
     'portfolio/([0-9]+)' => 'portfolio/view/$1',
     'portfolio' => 'portfolio/index',
     '' => 'site/index',
+    
+    
+    
 
+'uploads' => 'site/uploads',
     /*'printers/([0-9]+)' => 'printers/view/$1',
     'printers/edit/([0-9]+)' => 'printers/edit/$1',
     'cartriges' => 'cartriges/index',

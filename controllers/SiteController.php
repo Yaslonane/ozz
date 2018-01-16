@@ -6,7 +6,7 @@
 
 class SiteController{
     
-    public static $title = "OZZ";
+    public static $title = "Главная";
         /*
          * 
          * вывод главной страницы
@@ -41,38 +41,18 @@ class SiteController{
         return true;
     }
     
-    public function actionContact(){
+    public function actionReviews(){
         
-        $userEmail = '';
-        $userText = '';
-        $result = false;
-       
-        if(isset($_POST['submit'])){
-            
-            $userEmail = $_POST['userEmail'];
-            $userText = $_POST['userText'];
-            
-            $errors = false;
-            
-            if(!user::checkEmail($userEmail)){
-                $errors[] = 'Not valid E-mail';
-            }
-            
-            if($errors == false){
-                $adminEmail = 'yaslonane@yandex.ru';
-                $message = "Текст: {$userText}. От {$userEmail}";
-                $subject = 'subject mail TEST';
-                $result = mail($adminEmail, $subject, $message, "From: System message from zaa46.xyz <info@zaa46.xyz>"); /* {$userEmail} */
-                $result = true;
-            }
-        }
+        echo "reviews";
         
-        require (ROOT . TMPL . 'contact.php');
+        //require (ROOT . TMPL . 'contact.php');
         
         return true;
     }
     
     public function actionAbout(){
+        
+        self::$title = "О себе";
         
         //$inf = info::getInfo();
         
