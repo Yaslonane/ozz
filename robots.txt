@@ -1,0 +1,23 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /search/
+Disallow: /cart/
+Disallow: */?add-to-cart=
+Crawl-Delay: 5
+
+User-agent: GoogleBot
+Disallow: /wp-admin/
+Disallow: /search/
+Disallow: /cart/
+Disallow: */?add-to-cart=
+
+User-agent: Yandex
+Disallow: /wp-admin/
+Disallow: /search/
+Disallow: /cart/
+Disallow: */?add-to-cart=
+Clean-Param: utm_source&utm_medium&utm_campaign
+Crawl-Delay: 0.5
+
+Sitemap: https://t-idet.ru/sitemap.xml
+Host: https://t-idet.ru

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href ="<?php echo DOMAIN; ?>/img/favicon.png" type= "image/x-icon"/> 
+    <link rel="shortcut icon" href ="<?php echo DOMAIN; ?>/img/favicon.png" type= "image/x-icon"/>
 <title><?php echo self::$title; ?></title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">

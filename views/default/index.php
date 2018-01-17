@@ -221,7 +221,7 @@
 					<div id="myTabContent" class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 							<div class="tabcontent-grids">
-								<img src="images/2.png" alt=" " class="img-responsive" />
+								<img src="<?php echo TMPL; ?>images/2.png" alt=" " class="img-responsive" />
 								<h4>Joy Allen<span>Contractor Chief</span></h4>
 								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
 									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
@@ -231,7 +231,7 @@
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="carl" aria-labelledby="carl-tab">
 							<div class="tabcontent-grids">
-								<img src="images/3.png" alt=" " class="img-responsive" />
+								<img src="<?php echo TMPL; ?>images/3.png" alt=" " class="img-responsive" />
 								<h4>Michael Carl<span>Contractor</span></h4>
 								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
 									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
@@ -241,7 +241,7 @@
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="james" aria-labelledby="james-tab">
 							<div class="tabcontent-grids">
-								<img src="images/4.png" alt=" " class="img-responsive" />
+								<img src="<?php echo TMPL; ?>images/4.png" alt=" " class="img-responsive" />
 								<h4>Allen Rosy<span>Contractor Chief</span></h4>
 								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
 									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 

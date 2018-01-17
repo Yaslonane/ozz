@@ -2,115 +2,46 @@
 <!-- banner -->
 	<div class="banner1">
 		<div class="container">
-			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html">Home</a> / <span>About Us</span></h2>
+			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html">Home</a> / <span>Mail Us</span></h2>
 		</div>
 	</div>
 <!-- //banner -->
-<!-- about -->
-	<div class="about">
+<!-- mail -->
+	<div class="mail">	
 		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">About Us</h3>
+			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Mail Us</h3>
 			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</p>
-			<div class="about-grids">
-				<div class="col-md-6 about-grids-left">
-					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-						<div class="panel panel-default">
-							<div class="panel-heading panel-heading-sub" role="tab" id="headingOne">
-							  <h4 class="panel-title asd">
-								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>assumenda est cliche repreh
-								</a>
-							  </h4>
-							</div>
-							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							  <div class="panel-body panel_text">
-									Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe 
-									eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum 
-									rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias 
-									consequatur aut perferendis doloribus asperiores repellat.
-							  </div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading panel-heading-sub" role="tab" id="headingTwo">
-							  <h4 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>Itaque earum rerum
-								</a>
-							  </h4>
-							</div>
-							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-							   <div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-							  </div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading panel-heading-sub" role="tab" id="headingThree">
-							  <h4 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								  <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>autem accusamus terry richa
-								</a>
-							  </h4>
-							</div>
-							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-							   <div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-							  </div>
-							</div>
-						</div>
+			<div class="mail-grids">
+				<div class="col-md-8 mail-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+					<form action="#" method="post">
+						<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+						<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+						<input type="text" name="Subject" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
+						<textarea type="text"  name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+						<input type="submit" value="Submit Now" >
+					</form>
+				</div>
+				<div class="col-md-4 mail-grid-right animated wow slideInRight" data-wow-delay=".5s">
+					<div class="mail-grid-right1">
+						<img src="<?php echo TMPL; ?>images/3.png" alt=" " class="img-responsive" />
+						<h4>Michael Carl <span>Contractor</span></h4>
+						<ul class="phone-mail">
+							<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone: +1234 567 893</li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="mailto:info@example.com">info@example.com</a></li>
+						</ul>
+						<ul class="social-nav model-8">
+							<li><a href="#" class="facebook"><i></i></a></li>
+							<li><a href="#" class="twitter"><i> </i></a></li>
+							<li><a href="#" class="g"><i></i></a></li>
+							<li><a href="#" class="p"><i></i></a></li>
+						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 about-grids-right animated wow slideInRight" data-wow-delay=".5s">
-					<img src="images/3.jpg" alt=" " class="img-responsive" />
-				</div>
 				<div class="clearfix"> </div>
 			</div>
+			<iframe class="animated wow slideInLeft" data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3098.7638135888296!2d-77.47669308468912!3d39.04350424592369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b63eb3bc8da92b%3A0x78c8e09ab1cabc90!2sShopping+Plaza%2C+Ashburn%2C+VA+20147%2C+USA!5e0!3m2!1sen!2sin!4v1457602090579" frameborder="0" style="border:0" allowfullscreen></iframe>		
 		</div>
 	</div>
-<!-- //about -->
-<!-- team -->
-	<div class="team">
-		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Our Amazing Team</h3>
-			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</p>
-			<div class="team-grids">
-				<div class="col-md-4 team-grid animated wow slideInLeft" data-wow-delay=".5s">
-					<img src="images/5.png" alt=" " class="img-responsive" />
-					<h4>Smith Kevin <span>Contractor</span></h4>
-					<ul class="social-nav model-8">
-						<li><a href="#" class="facebook"><i></i></a></li>
-						<li><a href="#" class="twitter"><i> </i></a></li>
-						<li><a href="#" class="g"><i></i></a></li>
-						<li><a href="#" class="p"><i></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-4 team-grid animated wow slideInLeft" data-wow-delay=".6s">
-					<img src="images/6.png" alt=" " class="img-responsive" />
-					<h4>Allen Rosy <span>Contractor</span></h4>
-					<ul class="social-nav model-8">
-						<li><a href="#" class="facebook"><i></i></a></li>
-						<li><a href="#" class="twitter"><i> </i></a></li>
-						<li><a href="#" class="g"><i></i></a></li>
-						<li><a href="#" class="p"><i></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-4 team-grid animated wow slideInLeft" data-wow-delay=".7s">
-					<img src="images/7.png" alt=" " class="img-responsive" />
-					<h4>Andrew Mark <span>Contractor</span></h4>
-					<ul class="social-nav model-8">
-						<li><a href="#" class="facebook"><i></i></a></li>
-						<li><a href="#" class="twitter"><i> </i></a></li>
-						<li><a href="#" class="g"><i></i></a></li>
-						<li><a href="#" class="p"><i></i></a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
-				<p class="animated wow slideInUp" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
-					molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-			</div>
-		</div>
-	</div>
-<!-- //team -->
+<!-- //mail -->
 
-<?php require_once 'header.php'; //подключаем header?> 
+<?php require_once 'footer.php'; //подключаем footer?> 

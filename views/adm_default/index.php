@@ -52,14 +52,18 @@ function openKCFinder(field) {
                     <label class="control-label">Логотип</label>
                     <input class="form-control" name="logo" type="text" readonly="readonly" placeholder="Click here to browse the server" value="<?php echo $gen_inf['logo']?>" onclick="openKCFinder(this)" style="cursor:pointer" />
                 </div>
+                <div class="form-group" >
+                    <label class="control-label">favicon</label>
+                    <input class="form-control" name="favicon" type="text" readonly="readonly" placeholder="Click here to browse the server" value="<?php echo $gen_inf['favicon']?>" onclick="openKCFinder(this)" style="cursor:pointer" />
+                </div>
                 <div id="kcfinder_div"></div>    
                 <div class="form-group" >
                     <label class="control-label">e-mail</label>
                     <input class="form-control" name="email" type="text" value="<?php echo $gen_inf['email']?>"/>
                 </div>
                 <div class="form-group" >
-                    <label class=" control-label">Work time</label>
-                    <textarea name="work_time" class="form-control" rows="6"><?php echo $gen_inf['work_time']?></textarea>
+                    <label class="control-label">vk link</label>
+                    <input class="form-control" name="vk" type="text" value="<?php echo $gen_inf['vk']?>"/>
                 </div>
             </div>
                 
@@ -71,23 +75,27 @@ function openKCFinder(field) {
                     <label class="control-label">Название сайта</label>
                     <input type="text" class="form-control" name="site_name" value="<?php echo $gen_inf['site_name']?>">
                 </div>
-
                 <div class="form-group">
                     <label class="control-label">phones</label>
                     <input class="form-control" name="phones" type="text" value="<?php echo $gen_inf['phones']?>"/>
                 </div>
                 <div class="form-group">
-                    <label class=" control-label">adress</label>
-                        <textarea name="adress" class="form-control" rows="6"><?php echo $gen_inf['adress']?></textarea>
+                    <label class="control-label">Имя владельца</label>
+                    <input class="form-control" name="name" type="text" value="<?php echo $gen_inf['name']?>"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">instagramm link</label>
+                    <input class="form-control" name="instagramm" type="text" value="<?php echo $gen_inf['instagramm']?>"/>
                 </div>
             </div>
                 
             <div class="col-sm-12">  
                     <div class="form-group">
                         <hr>
-                        <label class=" control-label">Информация</label>
-                        <div>
-                            <textarea id="editor1" name="info_text" class="form-control" rows="100"><?php echo $gen_inf['info_text']?></textarea>
+                        
+                        <div class="col-sm-offset-2 col-sm-8">
+                            <label class=" control-label"><h2>Информация</h2></label>
+                            <textarea id="editor1" name="info_text" class="form-control" rows="50"><?php echo $gen_inf['info_text']?></textarea>
                         </div>
                         <script type="text/javascript">
                             CKEDITOR.replace( 'editor1',{'filebrowserBrowseUrl':'<?php echo LIB ?>kcfinder/browse.php?type=files',
@@ -98,10 +106,6 @@ function openKCFinder(field) {
                             'filebrowserFlashUploadUrl':'<?php echo LIB ?>kcfinder/upload.php?type=flash'} );
                         </script>
                     </div>
-                <div class="form-group col-sm-7">
-                    <label class=" control-label">Короткая инфа</label>
-                        <textarea name="info_text_mini" class="form-control" rows="6"><?php echo $gen_inf['info_text_mini']?></textarea>
-                </div>
 
                     <div class="form-group col-sm-6">
                         <label class="control-label">Meta-kw</label>
