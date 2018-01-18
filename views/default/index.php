@@ -37,8 +37,8 @@
 <!-- pricing-plans -->
 	<div class="pricing-plans">	
 		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Our Pricing Plans</h3>
-			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</p>
+			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Услуги</h3>
+			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Краткий список услуг предоставляемый мной</p>
 			<div class="pricing-plans-grids">
 				
                             <?php foreach($services as $srv): ?>
@@ -52,7 +52,7 @@
                                             <?php endforeach;?>   
                                         </ul>
                                         <div class="more m1">
-                                                <a href="<?php echo DOMAIN; ?>/services/<?php echo $srv['id']?> " class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Learn More...</a>
+                                                <a href="<?php echo DOMAIN; ?>/services/<?php echo $srv['id']?> " class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Узнать подробнее</a>
                                         </div>
                                     </div>
                                 </div>

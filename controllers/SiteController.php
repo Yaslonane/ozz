@@ -30,13 +30,11 @@ class SiteController{
         
         //$slider = other::getSlider();// вывод слайдера изображений
         
-        //$total_working = other::getTotalWorking();// вывод счетчика работп
+        $info = info::getInfo();// вывод счетчика работп
         
         //$portfolio = portfolio::getLineImg(); //вывод ленты изображений на главную
         
         $services = Services::getServicesCards();//вывод карточек услуг на главную
-        
-        var_dump($services);
         
         require_once(ROOT . TMPL .'index.php');
         

@@ -56,31 +56,46 @@ class info {
         
         $db = Db::getConnection();
         
+        $name_autor = $_POST['name_autor'];
         $email = $_POST['email'];
         $phones = $_POST['phones'];
-        $adress = $_POST['adress'];
-        $work_time = $_POST['work_time'];
         $site_name = $_POST['site_name'];
-        $text_mini = $_POST['info_text_mini'];
-        $text = $_POST['info_text'];
+        $info_text = $_POST['info_text'];
         $meta_kw = $_POST['meta_kw'];
         $meta_d = $_POST['meta_d'];
         $logo = $_POST['logo'];
+        $favicon = $_POST['favicon'];
+        $vk_link = $_POST['vk_link'];
+        $instagramm_link = $_POST['instagramm_link'];
+        
+        $total_client = $_POST['total_client'];
+        $total_work_time = $_POST['total_work_time'];
+        $total_good_foto = $_POST['total_good_foto'];
+        $total_source_foto = $_POST['total_source_foto'];
+
+
+
+
 
         
-        $stmt = $db->prepare("UPDATE info set email = :email, phones = :phones,"
-                . "  adress = :adress, work_time = :work_time, site_name = :site_name, "
-                . "info_text_mini=:info_text_mini, info_text = :info_text, meta_kw = :meta_kw, meta_d = :meta_d, logo = :logo");
+        $stmt = $db->prepare("UPDATE info set name_autor = :name_autor, email = :email,"
+                . "  phones = :phones, site_name = :site_name, info_text = :info_text, "
+                . "total_client=:total_client, total_work_time=:total_work_time, total_good_fotos = :total_good_foto, total_source_fotos = :total_source_foto,  vk_link=:vk_link, instagramm_link=:instagramm_link, favicon = :favicon, meta_kw = :meta_kw, meta_d = :meta_d, logo = :logo");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phones', $phones);
-        $stmt->bindParam(':adress', $adress);
-        $stmt->bindParam(':work_time', $work_time);
+        $stmt->bindParam(':name_autor', $name_autor);
+        $stmt->bindParam(':vk_link', $vk_link);
         $stmt->bindParam(':site_name', $site_name);
-        $stmt->bindParam(':info_text_mini', $text_mini);
+        $stmt->bindParam(':favicon', $favicon);
         $stmt->bindParam(':info_text', $text);
         $stmt->bindParam(':meta_kw', $meta_kw);
         $stmt->bindParam(':meta_d', $meta_d);
         $stmt->bindParam(':logo', $logo);
+        $stmt->bindParam(':instagramm_link', $instagramm_link);
+        $stmt->bindParam(':total_client', $total_client);
+        $stmt->bindParam(':total_work_time', $total_work_time);
+        $stmt->bindParam(':total_good_foto', $total_good_foto);
+        $stmt->bindParam(':total_source_foto', $total_source_foto);
         
         $stmt->execute();
         
