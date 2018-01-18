@@ -16,32 +16,23 @@
 					</div>
 				</div>
 				<div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".6s">
-					<h3>Subscribe</h3>
-					<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis.</p>
-					<form action="#" method="post">
-						<input type="email" name="Email" value="Enter Your Email..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email...';}" required="">
-						<input type="submit" value="Send">
-					</form>
+					<h3>Вконтакте</h3>
+					блок VK
 				</div>
 				<div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".7s">
-					<h3>Latest Tweets</h3>
-					<ul class="footer-grid-list">
-						<li>Nam libero tempore, cum soluta nobis est eligendi optio 
-							cumque nihil impedit. <span>1 day ago</span></li>
-						<li>Itaque earum rerum hic tenetur a sapiente delectus <a href="mailto:info@mail.com">KWEsa@mail.com</a>
-							cumque nihil impedit. <span>1 day ago</span></li>
-					</ul>
+					<h3>instagramm</h3>
+					блок instagramm
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="footer-grids1">
 				<div class="footer-grids1-left animated wow slideInLeft" data-wow-delay=".5s">
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="short-codes.html">Short Codes</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-						<li><a href="mail.html">Mail Us</a></li>
+                                                <li <?php if(self::$title == "Главная"):?> class="active" <?php endif;?>><a href="/" >Home</a></li>
+                                                <li <?php if(self::$title == "Портфолио"):?> class="active" <?php endif;?>><a href="portfolio" >portfolio</a></li>
+                                                <li <?php if(self::$title == "Услуги"):?> class="active" <?php endif;?>><a href="services" >Services</a></li>
+                                                <li <?php if(self::$title == "Отзывы"):?> class="active" <?php endif;?>><a href="reviews" >Reviews</a></li>
+                                                <li <?php if(self::$title == "О себе"):?> class="active" <?php endif;?>><a href="about" >about</a></li>
 					</ul>
 				</div>
 				<div class="footer-grids1-right">

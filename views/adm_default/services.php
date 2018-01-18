@@ -14,8 +14,7 @@
         <tr>
             <th>Заголовок страницы</th>
             <th>Заголовок статьи</th>
-            <th>Автор</th>
-            <th>Дата</th>
+            <th>Цена</th>
             <th>Опубликовано</th>
             <th>Редактировать</th>
             <th>Удалить</th>
@@ -26,8 +25,7 @@
         <tr class="gradeA">
             <td><?php echo $service['title']; ?></td>
             <td><?php echo $service['name']; ?></td>
-            <td><?php echo $service['autor']; ?></td>
-            <td><?php echo date("m-d-Y", $service['date']); ?></td>
+            <td><?php echo $service['price']; ?></td>
             <td>
                 <a href="<?php DOMAIN; ?>/adminpanel/publicserv/<?php echo $service['id']; ?>" > <i <?php echo ($service['is_publication'] == 0) ? 'class="fa fa-times"  style="font-size:20px; color:#cc0000 "' : "class='fa fa-check'"; ?>></i></a>
             </td>
@@ -43,7 +41,7 @@
             <div>
                 
             </div>
-            <form action="./createservices" class="form-horizontal adminex-form" method="post">
+            <form action=" <?php echo DOMAIN; ?>/adminpanel/createservices" class="form-horizontal adminex-form" method="post">
                     <label class="col-sm-2 col-sm-2 control-label">Название услуги</label>
                     <div class="col-sm-6"><input type="text" class="form-control" name="name"></div>
                 <button class="btn btn-primary" type="submit" name="create">Создать</button>

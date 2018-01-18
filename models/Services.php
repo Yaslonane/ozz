@@ -27,6 +27,34 @@ class Services {
         return $servicesList; //возвращаем массив
     }
     
+    public static function getServicesCards(){ //получаем все услуги
+        
+        $db = Db::getConnection(); //инициализируем подключение к бд
+        
+        $servicesList = array(); //инициализируем переменную 
+        
+        $result = $db->query('SELECT id, name, title, price, info, img FROM services WHERE is_publication = 1'); // получаем из базы список
+        
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $i = 0;
+        while($row = $result->fetch()){
+            foreach($row as $key => $value) { //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
+                $servicesList[$i][$key] = $value;
+                
+            }
+            $i++;
+        }
+        return $servicesList; //возвращаем массив
+    }
+    
+    public static function replaseInfoByCards($info){
+        
+        $replaceInfo = explode(",", $info);
+        
+        return $replaceInfo;
+    }
+    
     public static function getAllServicesAdmin(){ //получаем все услуги
         
         $db = Db::getConnection(); //инициализируем подключение к бд
@@ -103,24 +131,22 @@ class Services {
         $id = $_POST['id'];
         $title = $_POST['title'];
         $name = $_POST['name'];
-        $date = self::changeDateToUnix($_POST['date']);
-        $autor = $_POST['autor'];
+        $price = $_POST['price'];
         $is_publication = $_POST['is_publication'];
-        $text_mini = $_POST['text_mini'];
+        $info = $_POST['info'];
         $text = $_POST['text'];
         $meta_kw = $_POST['meta_kw'];
         $meta_d = $_POST['meta_d'];
         $img = $_POST['img'];
 
         
-        $stmt = $db->prepare("UPDATE services set title = :title, name = :name,  date = :date, autor = :autor, is_publication = :is_publication, text_mini=:text_mini, text = :text, meta_kw = :meta_kw, meta_d = :meta_d, img = :img WHERE id=:id");
+        $stmt = $db->prepare("UPDATE services set title = :title, name = :name,  price = :price, is_publication = :is_publication, info=:info, text = :text, meta_kw = :meta_kw, meta_d = :meta_d, img = :img WHERE id=:id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':date', $date);
-        $stmt->bindParam(':autor', $autor);
+        $stmt->bindParam(':price', $price);
         $stmt->bindParam(':is_publication', $is_publication);
-        $stmt->bindParam(':text_mini', $text_mini);
+        $stmt->bindParam(':info', $info);
         $stmt->bindParam(':text', $text);
         $stmt->bindParam(':meta_kw', $meta_kw);
         $stmt->bindParam(':meta_d', $meta_d);

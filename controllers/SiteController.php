@@ -34,7 +34,9 @@ class SiteController{
         
         //$portfolio = portfolio::getLineImg(); //вывод ленты изображений на главную
         
-        //$services = service::getServicesCards();//вывод карточек услуг на главную
+        $services = Services::getServicesCards();//вывод карточек услуг на главную
+        
+        var_dump($services);
         
         require_once(ROOT . TMPL .'index.php');
         

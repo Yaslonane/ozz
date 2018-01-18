@@ -121,8 +121,32 @@ function openKCFinder(field) {
                             </div>
                     </div>
                     
+                <hr>
+                <h2>Счетчики</h2>
+                <div class="col-sm-offset-2 col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label">Клиентов</label>
+                        <input class="form-control col-sm-2" name="clients" type="text" value="<?php echo $gen_inf['clients']?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Часов работы</label>
+                        <input class="form-control col-sm-2" name="time_working" type="text" value="<?php echo $gen_inf['time_working']?>"/>
+                    </div>
+                </div>
                     
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label">Обработа фото</label>
+                        <input class="form-control col-sm-2" name="good_foto" type="text" value="<?php echo $gen_inf['good_foto']?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Сделано фото</label>
+                        <input class="form-control col-sm-2" name="source_foto" type="text" value="<?php echo $gen_inf['good_foto']?>"/>
+                    </div>
+                </div>
             </div>   
+                
+                
                 <button class="btn btn-primary" type="submit" name="save">Сохранить</button>
             </form>
         

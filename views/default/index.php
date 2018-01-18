@@ -40,57 +40,24 @@
 			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Our Pricing Plans</h3>
 			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</p>
 			<div class="pricing-plans-grids">
-				<div class="col-md-4 pricing-plans-grid animated wow slideInLeft" data-wow-delay=".5s">
-					<div class="pricing-plans-grid1">
-						<h4>Solo</h4>
-						<h5><sup>$</sup>54 <span>/ Month</span></h5>
-						<ul>
-							<li>Eum iure reprehenderit qui</li>
-							<li>Qui dolorem ipsum quia</li>
-							<li>Velit esse quam nihil</li>
-							<li>Quo voluptas nulla pariatur</li>
-							<li>Molestiae consequatur, vel illum</li>
-							<li>Nisi ut aliquid commodi consequatur</li>
-						</ul>
-						<div class="more m1">
-							<a href="single.html" class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Learn More...</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 pricing-plans-grid animated wow slideInLeft" data-wow-delay=".6s">
-					<div class="pricing-plans-grid1">
-						<h4>Team</h4>
-						<h5><sup>$</sup>66 <span>/ Month</span></h5>
-						<ul>
-							<li>Eum iure reprehenderit qui</li>
-							<li>Qui dolorem ipsum quia</li>
-							<li>Velit esse quam nihil</li>
-							<li>Quo voluptas nulla pariatur</li>
-							<li>Molestiae consequatur, vel illum</li>
-							<li>Nisi ut aliquid commodi consequatur</li>
-						</ul>
-						<div class="more m1">
-							<a href="single.html" class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Learn More...</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 pricing-plans-grid animated wow slideInLeft" data-wow-delay=".7s">
-					<div class="pricing-plans-grid1">
-						<h4>Agency</h4>
-						<h5><sup>$</sup>87 <span>/ Month</span></h5>
-						<ul>
-							<li>Eum iure reprehenderit qui</li>
-							<li>Qui dolorem ipsum quia</li>
-							<li>Velit esse quam nihil</li>
-							<li>Quo voluptas nulla pariatur</li>
-							<li>Molestiae consequatur, vel illum</li>
-							<li>Nisi ut aliquid commodi consequatur</li>
-						</ul>
-						<div class="more m1">
-							<a href="single.html" class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Learn More...</a>
-						</div>
-					</div>
-				</div>
+				
+                            <?php foreach($services as $srv): ?>
+                                <div class="col-md-4 pricing-plans-grid animated wow slideInLeft" data-wow-delay=".5s">
+                                    <div class="pricing-plans-grid1">
+                                        <h4><?php echo $srv['name']?></h4>
+                                        <h5><?php echo $srv['price']?> <sup>руб</sup></h5>
+                                        <ul>
+                                            <?php foreach(Services::replaseInfoByCards($srv['info']) as $list): ?>   
+                                                <li>-<?php echo $list; ?> </li>
+                                            <?php endforeach;?>   
+                                        </ul>
+                                        <div class="more m1">
+                                                <a href="<?php echo DOMAIN; ?>/services/<?php echo $srv['id']?> " class="hvr-shutter-in-vertical hvr-shutter-in-vertical1">Learn More...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach;?>
+
 				<div class="clearfix"> </div>
 			</div>			
 		</div>

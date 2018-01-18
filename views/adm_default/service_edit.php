@@ -78,27 +78,21 @@ function openKCFinder(field) {
                             </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">Дата</label>
-                        <div class="col-sm-10 col-xs-11">
-                            <input class="form-control form-control-inline input-medium default-date-picker" name="date" size="16" type="text" value="<?php echo date("m-d-Y", $service['date']); ?>" />
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 col-sm-2 control-label">Название услуги</label>
                         <div class="col-sm-10"><input type="text" class="form-control" name="name" value="<?php echo $service['name']?>"></div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Автор</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" name="autor" value="<?php echo $service['autor']?>"></div>
+                        <label class="col-sm-2 col-sm-2 control-label">Цена</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="price" value="<?php echo $service['price']?>"></div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 col-sm-2 control-label">Анонс</label>
+                        <label class="col-sm-2 col-sm-2 control-label">info</label>
                         <div class="col-sm-10">
-                             <textarea name="text_mini" class="form-control" rows="6"><?php echo $service['text_mini']?></textarea>
+                             <textarea name="info" class="form-control" rows="6"><?php echo $service['info']?></textarea>
                         </div>
                     </div>
  </div>
-<div class="col-sm-12">  
+<div class="col-sm-offset-2 col-sm-8">  
                     <div class="form-group">
                         <hr>
                         <label class="control-label">Текст</label>
