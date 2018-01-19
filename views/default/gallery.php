@@ -10,10 +10,10 @@
       display:block; 
       width:100%; 
       height:auto; 
-      padding: 4px; 
-      background-color: #fff; 
-      border: 1px solid #ddd; 
-      border-radius: 4px; 
+      padding: 4px;
+      /*background-color: #fff; 
+      //border: 1px solid #ddd; 
+      //border-radius: 4px; */
     } 
 
     .banerport{
@@ -28,6 +28,7 @@
 	padding: 6em 0 0;
 	text-align: center;
     }
+    
     .thumbs {
   width: 100%;
   max-width: 450px; /* опционально */
@@ -35,7 +36,7 @@
   opacity: .99;
   overflow: hidden;
   position: relative;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
   cursor: pointer;
   -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
