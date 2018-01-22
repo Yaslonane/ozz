@@ -68,10 +68,10 @@ class info {
         $vk_link = $_POST['vk_link'];
         $instagramm_link = $_POST['instagramm_link'];
         
-        $total_client = $_POST['total_client'];
+        $total_clients = $_POST['total_clients'];
         $total_work_time = $_POST['total_work_time'];
-        $total_good_foto = $_POST['total_good_foto'];
-        $total_source_foto = $_POST['total_source_foto'];
+        $total_good_fotos = $_POST['total_good_fotos'];
+        $total_source_fotos = $_POST['total_source_fotos'];
 
 
 
@@ -80,22 +80,22 @@ class info {
         
         $stmt = $db->prepare("UPDATE info set name_autor = :name_autor, email = :email,"
                 . "  phones = :phones, site_name = :site_name, info_text = :info_text, "
-                . "total_client=:total_client, total_work_time=:total_work_time, total_good_fotos = :total_good_foto, total_source_fotos = :total_source_foto,  vk_link=:vk_link, instagramm_link=:instagramm_link, favicon = :favicon, meta_kw = :meta_kw, meta_d = :meta_d, logo = :logo");
+                . "total_clients=:total_clients, total_work_time=:total_work_time, total_good_fotos = :total_good_fotos, total_source_fotos = :total_source_fotos,  vk_link=:vk_link, instagramm_link=:instagramm_link, favicon = :favicon, meta_kw = :meta_kw, meta_d = :meta_d, logo = :logo");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phones', $phones);
         $stmt->bindParam(':name_autor', $name_autor);
         $stmt->bindParam(':vk_link', $vk_link);
         $stmt->bindParam(':site_name', $site_name);
         $stmt->bindParam(':favicon', $favicon);
-        $stmt->bindParam(':info_text', $text);
+        $stmt->bindParam(':info_text', $info_text);
         $stmt->bindParam(':meta_kw', $meta_kw);
         $stmt->bindParam(':meta_d', $meta_d);
         $stmt->bindParam(':logo', $logo);
         $stmt->bindParam(':instagramm_link', $instagramm_link);
-        $stmt->bindParam(':total_client', $total_client);
+        $stmt->bindParam(':total_clients', $total_clients);
         $stmt->bindParam(':total_work_time', $total_work_time);
-        $stmt->bindParam(':total_good_foto', $total_good_foto);
-        $stmt->bindParam(':total_source_foto', $total_source_foto);
+        $stmt->bindParam(':total_good_fotos', $total_good_fotos);
+        $stmt->bindParam(':total_source_fotos', $total_source_fotos);
         
         $stmt->execute();
         

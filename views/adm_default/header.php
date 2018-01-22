@@ -75,7 +75,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?php echo DOMAIN; ?>/adminpanel">
-                    <img src="<?php echo ADM_TMPL; ?>images/logo.png" alt="">
+                    <img src="<?php echo DOMAIN; ?>/img/icon ozz" alt="" height="30">
                 </a>
             </div>
 

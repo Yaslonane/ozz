@@ -63,7 +63,7 @@ function openKCFinder(field) {
                 </div>
                 <div class="form-group" >
                     <label class="control-label">vk link</label>
-                    <input class="form-control" name="vk" type="text" value="<?php echo $gen_inf['vk']?>"/>
+                    <input class="form-control" name="vk_link" type="text" value="<?php echo $gen_inf['vk_link']?>"/>
                 </div>
             </div>
                 
@@ -81,11 +81,11 @@ function openKCFinder(field) {
                 </div>
                 <div class="form-group">
                     <label class="control-label">Имя владельца</label>
-                    <input class="form-control" name="name" type="text" value="<?php echo $gen_inf['name']?>"/>
+                    <input class="form-control" name="name_autor" type="text" value="<?php echo $gen_inf['name_autor']?>"/>
                 </div>
                 <div class="form-group">
                     <label class="control-label">instagramm link</label>
-                    <input class="form-control" name="instagramm" type="text" value="<?php echo $gen_inf['instagramm']?>"/>
+                    <input class="form-control" name="instagramm_link" type="text" value="<?php echo $gen_inf['instagramm_link']?>"/>
                 </div>
             </div>
                 
@@ -126,22 +126,22 @@ function openKCFinder(field) {
                 <div class="col-sm-offset-2 col-sm-4">
                     <div class="form-group">
                         <label class="control-label">Клиентов</label>
-                        <input class="form-control col-sm-2" name="clients" type="text" value="<?php echo $gen_inf['clients']?>"/>
+                        <input class="form-control col-sm-2" name="total_clients" type="text" value="<?php echo $gen_inf['total_clients']?>"/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Часов работы</label>
-                        <input class="form-control col-sm-2" name="time_working" type="text" value="<?php echo $gen_inf['time_working']?>"/>
+                        <input class="form-control col-sm-2" name="total_work_time" type="text" value="<?php echo $gen_inf['total_work_time']?>"/>
                     </div>
                 </div>
                     
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label class="control-label">Обработа фото</label>
-                        <input class="form-control col-sm-2" name="good_foto" type="text" value="<?php echo $gen_inf['good_foto']?>"/>
+                        <input class="form-control col-sm-2" name="total_good_fotos" type="text" value="<?php echo $gen_inf['total_good_fotos']?>"/>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Сделано фото</label>
-                        <input class="form-control col-sm-2" name="source_foto" type="text" value="<?php echo $gen_inf['good_foto']?>"/>
+                        <input class="form-control col-sm-2" name="total_source_fotos" type="text" value="<?php echo $gen_inf['total_source_fotos']?>"/>
                     </div>
                 </div>
             </div>   

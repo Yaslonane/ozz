@@ -29,17 +29,17 @@ return array(
     'adminpanel/createservices' => 'Adminpanel/createservices',
     'adminpanel/services' => 'Adminpanel/services',
 
-    'adminpanel/posts/([0-9]+)' => 'Adminpanel/postedit/$1',
+    /*'adminpanel/posts/([0-9]+)' => 'Adminpanel/postedit/$1',
     'adminpanel/publicpost/([0-9]+)' => 'Adminpanel/publicpost/$1',
     'adminpanel/delpost/([0-9]+)' => 'Adminpanel/delpost/$1',
     'adminpanel/createpost' => 'Adminpanel/createpost',
-    'adminpanel/posts' => 'Adminpanel/posts',
+    'adminpanel/posts' => 'Adminpanel/posts',*/
     
-    'adminpanel/category/([0-9]+)' => 'Adminpanel/categoryedit/$1',
-    'adminpanel/publiccat/([0-9]+)' => 'Adminpanel/publiccat/$1',
-    'adminpanel/delcat/([0-9]+)' => 'Adminpanel/delcat/$1',
-    'adminpanel/createcat' => 'Adminpanel/createcat',
-    'adminpanel/category' => 'Adminpanel/category',
+    'adminpanel/reviews/([0-9]+)' => 'Adminpanel/reviews/$1',
+    'adminpanel/publicreviews/([0-9]+)' => 'Adminpanel/publicreviews/$1',
+    'adminpanel/delreviews/([0-9]+)' => 'Adminpanel/delreviews/$1',
+    'adminpanel/createreviews' => 'Adminpanel/createreviews',
+    'adminpanel/reviews' => 'Adminpanel/reviews',
     
     'adminpanel/gallery/([0-9]+)' => 'Adminpanel/galleryedit/$1',
     'adminpanel/publicgallery/([0-9]+)' => 'Adminpanel/publicgallery/$1',

@@ -7,7 +7,7 @@
  */
 class AdminpanelController extends AdminBase{
     //put your code here
-    public static $title = "AVTOZONA | Админпанель";
+    public static $title = "OZZ | Админпанель";
     
     public function actionIndex(){
         

@@ -6,25 +6,29 @@
  * Time: 15:14
  */
 
-class Blogs{
+class Reviews{
 
     /*
      * Return single news item with specified id
      * @param integer $id
      */
-    const SHOW_BY_DEFAULT = 6;
+    const SHOW_BY_DEFAULT = 3;
     /*
      * возвращаем массив продуктов
      */
-    public static function getLatestPosts($count = self::SHOW_BY_DEFAULT){
-        
-        $count = intval($count);
+    public static function getAllReviews($all = false){
         
         $db = Db::getConnection();
         
         $postsList = array();
         
-        $result = $db->query('SELECT * FROM blog WHERE is_publication = "1" ORDER BY id DESC LIMIT '.$count);
+        $sql = "SELECT * FROM reviews";
+        
+        if(!$all) $sql .= "  WHERE is_publication = 1";
+        
+        $sql .= ";";
+        
+        $result = $db->query($sql);
         
         $i = 0;
         while ($row = $result->fetch()){ //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
@@ -34,44 +38,38 @@ class Blogs{
             $i++;
         }
         
-        return $postsList; //возвращаем массив категорий
+        return $reviewsList; //возвращаем массив категорий
     }
     
-    /*public static function getPostsListByCategory($categoryId = false, $page =1){
+    /*public static function getLatestReviews($count = self::SHOW_BY_DEFAULT){
         
-            $page = intval($page);
-            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
-            
-            $db = Db::getConnection();
-            $products = array();
-            $sql = "SELECT * FROM blog WHERE is_publication = 1";
-            
-            if($categoryId) $sql .= " AND category_id=".$categoryId . "";
-            
-            $sql .= " ORDER BY id DESC LIMIT ".self::SHOW_BY_DEFAULT." OFFSET ".$offset;
-            
-            $result = $db->query($sql);
-            
-            $i = 0;
-            while ($row = $result->fetch()){ //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
-                foreach($row as $key => $value) { 
-                    $products[$i][$key] = $value;
-                }
-                $i++;
+        $count = intval($count);
+        
+        $db = Db::getConnection();
+        
+        $postsList = array();
+        
+        $result = $db->query('SELECT * FROM reviews WHERE is_publication = "1" ORDER BY id DESC LIMIT '.$count);
+        
+        $i = 0;
+        while ($row = $result->fetch()){ //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
+            foreach($row as $key => $value) { 
+                $postsList[$i][$key] = $value;
             }
-            
-            return $products;
-            
+            $i++;
+        }
+        
+        return $reviewsList; //возвращаем массив категорий
     }*/
     
-    public static function getPostById($id){
+    public static function getReviewById($id){
         
         $id = intval($id);
         
         if($id){
             $db = Db::getConnection();
             
-            $result = $db->query('SELECT * FROM blog WHERE id='.$id);
+            $result = $db->query('SELECT * FROM reviews WHERE id='.$id);
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $row = $result->fetch();
             
@@ -83,7 +81,86 @@ class Blogs{
         }
     }
     
-    public static function getTotalPostsInCategory($categoryId = false){
+     public static function updateReview(){
+        
+        $db = Db::getConnection();
+        
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $date = $_POST['date'];
+        $text = $_POST['text'];
+        $img = $_POST['img'];
+        $vk = $_POST['vk'];
+        $odnoklassniki = $_POST['odnoklassniki'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $is_publication = $_POST['is_publication'];
+
+        
+
+        $stmt = $db->prepare("UPDATE reviews set name = :name, date = :date, text=:text, vk=:vk, odnoklassniki=:odnoklassniki, is_publication = :is_publication, email = :email, phone = :phone, img = :img WHERE id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':vk', $vk);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':odnoklassniki', $odnoklassniki);
+        $stmt->bindParam(':is_publication', $is_publication);
+        
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0) return "Запись обновлена";
+        else return "error!!!";
+
+    }
+    
+    public static function createPost($name){
+        
+        $db = Db::getConnection();
+        
+        $stmt = $db->prepare("INSERT INTO reviews (name) VALUES (:name)");
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        
+        return $db->lastInsertId();
+    }
+    
+    
+    public static function delPost($id){
+        
+        $db = Db::getConnection();
+        
+        $stmt = $db->prepare("DELETE FROM reviews WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        
+        return true;
+    }
+    
+    public static function changeIsPublic($id){
+        
+        $db = Db::getConnection();
+        $result = $db->query('SELECT * FROM reviews WHERE id='.$id);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+        
+        $is_publication = $row['is_publication'];
+        
+        if($is_publication == 0) $is_publication_new = 1;
+        else $is_publication_new = 0;
+        
+        $stmt = $db->prepare("UPDATE reviews SET is_publication = :is_publication WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':is_publication', $is_publication_new);
+        $stmt->execute();
+        
+        return true;
+    }
+    
+    /*public static function getTotalPostsInCategory($categoryId = false){
         $db = Db::getConnection();
         
         $sql = "SELECT count(id) AS count FROM blog WHERE is_publication = 1";
@@ -101,7 +178,7 @@ class Blogs{
         $row = $result->fetch();
         
         return $row['count'];
-    }
+    }*/
     
     public static function changeDate($date){
         
@@ -158,7 +235,7 @@ class Blogs{
         return strtr($date, $translate);
     }
     
-    public static function getCategoryByIds($id_post){
+    /*public static function getCategoryByIds($id_post){
         
         $id = intval($id_post);
         
@@ -185,9 +262,9 @@ class Blogs{
 
             return $categoryList;
         
-    }
+    }*/
     
-    public static function changeCatInPost($arr_cat_in_post, $id_cat){
+    /*public static function changeCatInPost($arr_cat_in_post, $id_cat){
         $arr = Array();
         for($i = 0; count($arr_cat_in_post) > $i; $i++){
             $arr[$i] = $arr_cat_in_post[$i]['id_category'];
@@ -272,13 +349,13 @@ class Blogs{
             }
             
             return $categoryList;
-    }
+    }*/
     
-    public static function getListCategoryAdmin(){
+    /*public static function getListReviewsAdmin(){
         
         $db = Db::getConnection();
         
-        $sql = "SELECT *  FROM category";
+        $sql = "SELECT *  FROM review";
         
         $result = $db->query($sql);
         
@@ -290,7 +367,7 @@ class Blogs{
             $i++;
         }
             
-            return $categoryList;
+            return $reviewsList;
     }
     
     public static function getListCategoryByIdAdmin($id){
@@ -372,7 +449,7 @@ class Blogs{
             $i++;
         }
         return $PostsList; //возвращаем массив
-    }
+    }*/
     
     private static function changeDateToUnix($date){
         
@@ -381,190 +458,9 @@ class Blogs{
         
         return $U_date;
     }
-    
-    public static function savePost(){
         
-        $db = Db::getConnection();
-        
-        $id = $_POST['id'];
-        $title = $_POST['title'];
-        $name = $_POST['name'];
-        $date = self::changeDateToUnix($_POST['date']);
-        $autor = $_POST['autor'];
-        $is_publication = $_POST['is_publication'];
-        $text_mini = $_POST['text_mini'];
-        $text = $_POST['text'];
-        $meta_kw = $_POST['meta_kw'];
-        $meta_d = $_POST['meta_d'];
-        $img = $_POST['img'];
+   
 
-        
-        $stmt = $db->prepare("UPDATE blog set title = :title, name = :name,  date = :date, autor = :autor, is_publication = :is_publication, text_mini=:text_mini, text = :text, meta_kw = :meta_kw, meta_d = :meta_d, img = :img WHERE id=:id");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':date', $date);
-        $stmt->bindParam(':autor', $autor);
-        $stmt->bindParam(':is_publication', $is_publication);
-        $stmt->bindParam(':text_mini', $text_mini);
-        $stmt->bindParam(':text', $text);
-        $stmt->bindParam(':meta_kw', $meta_kw);
-        $stmt->bindParam(':meta_d', $meta_d);
-        $stmt->bindParam(':img', $img);
-        
-        $stmt->execute();
-        
-        $cat = $db->prepare("DELETE FROM post_is_category WHERE id_post = :id_post");
-        $cat->bindParam(':id_post', $id);
-        $cat->execute();
-        
-        if(isset($_POST['categoryes'])){
-            for($i = 0; count($_POST['categoryes']) > $i; $i++){
-            $cat = $db->prepare("INSERT INTO post_is_category (id_post, id_category) VALUES (:id_post, :id_category)");
-            $cat->bindParam(':id_post', $id);
-            $cat->bindParam(':id_category', $_POST['categoryes'][$i]);
-            $cat->execute();
-            }  
-        }
-        }
-        
-    public static function saveCat(){
-        
-        $db = Db::getConnection();
-        
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $is_publication = $_POST['is_publication'];
-        $description = $_POST['description'];
-        $meta_kw = $_POST['meta_kw'];
-        $meta_d = $_POST['meta_d'];
-        $img = $_POST['img'];
-
-        
-        $stmt = $db->prepare("UPDATE category set name = :name, is_publication = :is_publication, description=:description, meta_kw = :meta_kw, meta_d = :meta_d, img = :img WHERE id=:id");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':is_publication', $is_publication);
-        $stmt->bindParam(':description', $description);
-        $stmt->bindParam(':meta_kw', $meta_kw);
-        $stmt->bindParam(':meta_d', $meta_d);
-        $stmt->bindParam(':img', $img);
-        
-        $stmt->execute();
-        
-        if($stmt->rowCount() > 0) return "Запись обновлена";
-        else return "error!!!";
-
-    }
-    
-    public static function createPost($name){
-        
-        $db = Db::getConnection();
-        
-        $stmt = $db->prepare("INSERT INTO blog (name) VALUES (:name)");
-        $stmt->bindParam(':name', $name);
-        $stmt->execute();
-        
-        return $db->lastInsertId();
-    }
-    
-    public static function createCat($name){
-        
-        $db = Db::getConnection();
-        
-        $stmt = $db->prepare("INSERT INTO category (name) VALUES (:name)");
-        $stmt->bindParam(':name', $name);
-        $stmt->execute();
-        
-        return $db->lastInsertId();
-    }
-    
-    public static function delPost($id){
-        
-        $db = Db::getConnection();
-        
-        $stmt = $db->prepare("DELETE FROM blog WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        
-        return true;
-    }
-    
-    public static function changeIsPublic($id){
-        
-        $db = Db::getConnection();
-        $result = $db->query('SELECT * FROM blog WHERE id='.$id);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        $row = $result->fetch();
-        
-        $is_publication = $row['is_publication'];
-        
-        if($is_publication == 0) $is_publication_new = 1;
-        else $is_publication_new = 0;
-        
-        $stmt = $db->prepare("UPDATE blog SET is_publication = :is_publication WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':is_publication', $is_publication_new);
-        $stmt->execute();
-        
-        return true;
-    }
-    
-    public static function delCat($id){
-        
-        $db = Db::getConnection();
-        
-        $stmt = $db->prepare("DELETE FROM category WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        
-        return true;
-    }
-    
-    public static function changeIsPublicCat($id){
-        
-        $db = Db::getConnection();
-        $result = $db->query('SELECT * FROM category WHERE id='.$id);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        $row = $result->fetch();
-        
-        $is_publication = $row['is_publication'];
-        
-        if($is_publication == 0) $is_publication_new = 1;
-        else $is_publication_new = 0;
-        
-        $stmt = $db->prepare("UPDATE category SET is_publication = :is_publication WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':is_publication', $is_publication_new);
-        $stmt->execute();
-        
-        return true;
-    }
-
-    /*public static function getProductsByIds($idsArray){
-        
-        $products = array();
-        
-        $db = DB::getConnection();
-        
-        $idsString = implode(',', $idsArray);
-        
-        $sql = "SELECT * FROM product WHERE status='1' AND id IN ($idsString)";
-        
-        $result = $db->query($sql);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        
-        $i = 0;
-        while($row = $result->fetch()){
-            $products[$i]['id'] = $row['id'];  
-            $products[$i]['code'] = $row['code'];  
-            $products[$i]['name'] = $row['name'];  
-            $products[$i]['price'] = $row['price']; 
-            $i++;
-        }
-        
-        return $products;
-    }*/
 }
 
 ?>
