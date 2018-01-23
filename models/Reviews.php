@@ -20,7 +20,7 @@ class Reviews{
         
         $db = Db::getConnection();
         
-        $postsList = array();
+        $reviewsList = array();
         
         $sql = "SELECT * FROM reviews";
         
@@ -33,7 +33,7 @@ class Reviews{
         $i = 0;
         while ($row = $result->fetch()){ //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
             foreach($row as $key => $value) { 
-                $postsList[$i][$key] = $value;
+                $reviewsList[$i][$key] = $value;
             }
             $i++;
         }
@@ -87,7 +87,7 @@ class Reviews{
         
         $id = $_POST['id'];
         $name = $_POST['name'];
-        $date = $_POST['date'];
+        $date = self::changeDateToUnix($_POST['date']);
         $text = $_POST['text'];
         $img = $_POST['img'];
         $vk = $_POST['vk'];
@@ -117,7 +117,7 @@ class Reviews{
 
     }
     
-    public static function createPost($name){
+    public static function createReview($name){
         
         $db = Db::getConnection();
         
@@ -129,7 +129,7 @@ class Reviews{
     }
     
     
-    public static function delPost($id){
+    public static function delReview($id){
         
         $db = Db::getConnection();
         

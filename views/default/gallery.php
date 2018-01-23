@@ -125,27 +125,25 @@
 		</div>
 	</div>
 <!-- //banner -->
-<?php $size = getimagesize("".DOMAIN."/images/content/files/1_RegExp_CheatSheet_rus__vk_com_tproger.png"); ?>
-<pre> <?php var_dump($size); ?></pre>
-<pre> <?php echo "ширина: ".$size[0]." Высота: ".$size[1]; ?></pre>
-
-
 <!-- gallery -->
 	<div class="gallery">
             <div class="container">
 			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Портфолио</h3>
 			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Ниже представленны некоторые мои работы</p>
 			<div class="row clearfix mosaicflow">
-                            <div class="mosaicflow__item thumbs">
-                                <a href="<?php echo DOMAIN; ?>/portfolio/1" title="#1">
-                                    <img class="img-responsive" src="<?php echo TMPL; ?>images/3.jpg" />
-                                    <div class="caption">
-                                        <span class="title">Заголовок картинки</span>
-                                        <span class="info">Краткое описание или анонс записи</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="mosaicflow__item thumbs">
+                            <?php foreach($albums as $alb): ?>
+                                <div class="mosaicflow__item thumbs">
+                                    <a href="<?php echo DOMAIN; ?>/portfolio/<?php echo $alb['id']; ?>" title="">
+                                        <img class="img-responsive" src="<?php echo $alb['img']; ?>" />
+                                        <div class="caption">
+                                            <span class="title"><?php echo $alb['name']; ?></span>
+                                            <span class="info"><?php echo $alb['description']; ?></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endforeach;?>
+                            
+                            <!--<div class="mosaicflow__item thumbs">
                                 <a href="<?php echo DOMAIN; ?>/portfolio/1" title="#1">
                                     <img class="img-responsive" src="<?php echo TMPL; ?>images/4.jpg" />
                                     <div class="caption">
@@ -189,7 +187,7 @@
                                         <span class="info">Краткое описание или анонс записи</span>
                                     </div>
                                 </a>
-                            </div>
+                            </div>-->
 
                             
 			</div>

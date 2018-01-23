@@ -4,7 +4,7 @@
     <div class="wrapper">
 
         <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-offset-2 col-sm-8">
 
 
 
@@ -12,9 +12,7 @@
         <table  class="display table table-bordered table-striped" id="dynamic-table">
         <thead>
         <tr>
-            <th>Заголовок страницы</th>
-            <th>Заголовок статьи</th>
-            <th>Автор</th>
+            <th>Имя</th>
             <th>Дата</th>
             <th>Опубликовано</th>
             <th>Редактировать</th>
@@ -22,17 +20,15 @@
         </tr>
         </thead>
         <tbody>
-            <?php foreach ($posts as $post): ?>
+            <?php foreach ($reviews as $review): ?>
         <tr class="gradeA">
-            <td><?php echo $post['title']; ?></td>
-            <td><?php echo $post['name']; ?></td>
-            <td><?php echo $post['autor']; ?></td>
-            <td><?php echo date("m-d-Y", $post['date']); ?></td>
+            <td><?php echo $review['name']; ?></td>
+            <td><?php echo date("m-d-Y", $review['date']); ?></td>
             <td>
-                <a href="<?php DOMAIN; ?>/adminpanel/publicpost/<?php echo $post['id']; ?>" > <i <?php echo ($post['is_publication'] == 0) ? 'class="fa fa-times"  style="font-size:20px; color:#cc0000 "' : "class='fa fa-check'"; ?>></i></a>
+                <a href="<?php DOMAIN; ?>/adminpanel/publicreview/<?php echo $review['id']; ?>" > <i <?php echo ($review['is_publication'] == 0) ? 'class="fa fa-times"  style="font-size:20px; color:#cc0000 "' : "class='fa fa-check'"; ?>></i></a>
             </td>
-            <td><a href="<?php DOMAIN; ?>/adminpanel/posts/<?php echo $post['id']; ?> " ><i class="fa fa-edit"></i></a></td>
-            <td><a href="<?php DOMAIN; ?>/adminpanel/delpost/<?php echo $post['id']; ?>"> <i class="fa fa-trash-o"></i></a></td>
+            <td><a href="<?php DOMAIN; ?>/adminpanel/reviewedit/<?php echo $review['id']; ?> " ><i class="fa fa-edit"></i></a></td>
+            <td><a href="<?php DOMAIN; ?>/adminpanel/delreview/<?php echo $review['id']; ?>"> <i class="fa fa-trash-o"></i></a></td>
         </tr>
             <?php endforeach; ?>
   
@@ -43,12 +39,14 @@
             <div>
                 
             </div>
-            <form action="./createpost" class="form-horizontal adminex-form" method="post">
+        <div class="col-sm-offset-2 col-sm-8">
+            <form action="./createreview" class="form-horizontal adminex-form" method="post">
                     <label class="col-sm-2 col-sm-2 control-label">Название записи</label>
                     <div class="col-sm-6"><input type="text" class="form-control" name="name"></div>
                 <button class="btn btn-primary" type="submit" name="create">Создать</button>
             </form>
 
+        </div>
         </div>
         </div>
 

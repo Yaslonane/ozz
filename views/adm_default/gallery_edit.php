@@ -21,9 +21,41 @@
     -webkit-border-radius: 6px;
     padding: 1px;
 }
+#kcfinder1_div{
+    display: none;
+    position: absolute;
+    width: 670px;
+    height: 400px;
+    background: #e0dfde;
+    border: 2px solid #3687e2;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 1px;
+    z-index: 9999;
+}
 </style>
  
 <script type="text/javascript">
+function openKCFinder1(field) {
+    var div = document.getElementById('kcfinder1_div');
+    if (div.style.display == "block") {
+        div.style.display = 'none';
+        div.innerHTML = '';
+        return;
+    }
+    window.KCFinder = {
+        callBack: function(url) {
+            window.KCFinder = null;
+            field.value = url;
+            div.style.display = 'none';
+            div.innerHTML = '';
+        }
+    };
+    div.innerHTML = '<iframe name="kcfinder_iframe" src="<?php echo LIB ?>kcfinder/browse.php?type=files&dir=files/public" ' +
+        'frameborder="0" width="100%" height="100%" marginwidth="0" marginheight="0" scrolling="no" />';
+    div.style.display = 'block';
+}
 function openKCFinder(field) {
     var div = document.getElementById('kcfinder_div');
     if (div.style.display == "block") {
@@ -49,6 +81,13 @@ function openKCFinder(field) {
             <div class="form-group">
                 <label class="col-sm-2 control-label">Название альбома</label>
                 <div class="col-sm-6"><input type="text" class="form-control" name="name" value="<?php echo $album['name'] ?>"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Обложка</label>
+                <div class="col-sm-6">
+                    <input class="form-control" name="img" type="text" readonly="readonly" placeholder="Click here to browse the server" value="<?php echo $album['img'] ?>" onclick="openKCFinder1(this)" style="cursor:pointer" />
+                    <div id="kcfinder1_div"></div>
+                </div>
             </div>
             
             <div class="form-group">

@@ -35,10 +35,10 @@ return array(
     'adminpanel/createpost' => 'Adminpanel/createpost',
     'adminpanel/posts' => 'Adminpanel/posts',*/
     
-    'adminpanel/reviews/([0-9]+)' => 'Adminpanel/reviews/$1',
-    'adminpanel/publicreviews/([0-9]+)' => 'Adminpanel/publicreviews/$1',
-    'adminpanel/delreviews/([0-9]+)' => 'Adminpanel/delreviews/$1',
-    'adminpanel/createreviews' => 'Adminpanel/createreviews',
+    'adminpanel/reviewedit/([0-9]+)' => 'Adminpanel/reviewedit/$1',
+    'adminpanel/publicreview/([0-9]+)' => 'Adminpanel/publicreview/$1',
+    'adminpanel/delreview/([0-9]+)' => 'Adminpanel/delreview/$1',
+    'adminpanel/createreview' => 'Adminpanel/createreview',
     'adminpanel/reviews' => 'Adminpanel/reviews',
     
     'adminpanel/gallery/([0-9]+)' => 'Adminpanel/galleryedit/$1',

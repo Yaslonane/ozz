@@ -84,8 +84,7 @@
                 <ul class="nav navbar-nav">
                     <li ><a href="<?php echo DOMAIN; ?>/adminpanel">Главная</a></li>
                     <li> <!--class="active"--><a href="<?php echo DOMAIN; ?>/adminpanel/services">Услуги</a></li>
-                    <li><a href="<?php echo DOMAIN; ?>/adminpanel/posts">Блог</a></li>
-                    <li><a href="<?php echo DOMAIN; ?>/adminpanel/category">Категории</a></li>
+                    <li><a href="<?php echo DOMAIN; ?>/adminpanel/reviews">Отзывы</a></li>
                     <li><a href="<?php echo DOMAIN; ?>/adminpanel/gallery">Галерея</a></li>
      
                 </ul>

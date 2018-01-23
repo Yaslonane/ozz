@@ -44,7 +44,7 @@ class Gallery {
         
         $album = array();
         
-        $sql = "SELECT id, name, description, autor, is_publication FROM album_gallery WHERE id =".$id_album;
+        $sql = "SELECT id, name, img, description, autor, is_publication FROM album_gallery WHERE id =".$id_album;
         
         $result = $db->query($sql); // получаем из базы список
         
@@ -75,15 +75,17 @@ class Gallery {
         
         $id = $_POST['id_album'];
         $name = $_POST['name'];
+        $img = $_POST['img'];
         $is_publication = $_POST['is_publication'];
         $description = $_POST['description'];
         $autor = $_POST['autor'];
 
 
         
-        $stmt = $db->prepare("UPDATE album_gallery set name = :name, is_publication = :is_publication, description=:description, autor=:autor WHERE id=:id");
+        $stmt = $db->prepare("UPDATE album_gallery set name = :name, img = :img, is_publication = :is_publication, description=:description, autor=:autor WHERE id=:id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':img', $img);
         $stmt->bindParam(':is_publication', $is_publication);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':autor', $autor);
