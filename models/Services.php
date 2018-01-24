@@ -27,6 +27,26 @@ class Services {
         return $servicesList; //возвращаем массив
     }
     
+    public static function getServicesLst(){ //получаем все услуги
+        
+        $db = Db::getConnection(); //инициализируем подключение к бд
+        
+        $servicesList = array(); //инициализируем переменную 
+        
+        $result = $db->query('SELECT id, name FROM services WHERE is_publication = 1'); // получаем из базы список
+        
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $i = 0;
+        while($row = $result->fetch()){
+            foreach($row as $key => $value) { //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
+                $servicesList[$i][$key] = $value;
+            }
+            $i++;
+        }
+        return $servicesList; //возвращаем массив
+    }
+    
     public static function getServicesCards(){ //получаем все услуги
         
         $db = Db::getConnection(); //инициализируем подключение к бд

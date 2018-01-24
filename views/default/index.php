@@ -176,46 +176,26 @@
 <!-- testimonials -->
 	<div class="testimonials">
 		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Testimonials</h3>
-			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</p>
+			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Отзывы</h3>
+			<p class="qui animated wow zoomIn" data-wow-delay=".5s">Несколько недавно сказанных теплых слов в мой адрес</p>
 			<div class="testimonials-grids">
 				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 					<ul id="myTab" class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Joy Allen</a></li>
-						<li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab" aria-controls="profile">Michael Carl</a></li>
-						<li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab" aria-controls="profile">Allen Rosy</a></li>
+						<?php for($i=0; $i< count($reviews); $i++): ?>
+                                                <li role="presentation" class="<?php if($i == 0) echo "active";?>"><a href="#<?php echo $reviews[$i]['id']; ?>" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><?php echo $reviews[$i]['name']; ?></a></li>
+                                                <?php endfor;?>
 					</ul>
 					<div id="myTabContent" class="tab-content">
-						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                            <?php for($i=0; $i< count($reviews); $i++): ?>
+                                                <div role="tabpanel" class="tab-pane fade <?php if($i == 0) echo "in active";?>" id="<?php echo $reviews[$i]['id']; ?>" aria-labelledby="home-tab">
 							<div class="tabcontent-grids">
-								<img src="<?php echo TMPL; ?>images/2.png" alt=" " class="img-responsive" />
-								<h4>Joy Allen<span>Contractor Chief</span></h4>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-									cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-									anim id est laborum.</p>
+								<img src="<?php echo $reviews[$i]['img']; ?>" alt=" " class="img-responsive" />
+								<h4><?php echo $reviews[$i]['event']; ?><span><?php echo $reviews[$i]['location']; ?></span></h4>
+								<p><?php echo $reviews[$i]['text']; ?></p>
 							</div>
 						</div>
-						<div role="tabpanel" class="tab-pane fade" id="carl" aria-labelledby="carl-tab">
-							<div class="tabcontent-grids">
-								<img src="<?php echo TMPL; ?>images/3.png" alt=" " class="img-responsive" />
-								<h4>Michael Carl<span>Contractor</span></h4>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-									cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-									anim id est laborum.</p>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane fade" id="james" aria-labelledby="james-tab">
-							<div class="tabcontent-grids">
-								<img src="<?php echo TMPL; ?>images/4.png" alt=" " class="img-responsive" />
-								<h4>Allen Rosy<span>Contractor Chief</span></h4>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse 
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-									cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-									anim id est laborum.</p>
-							</div>
-						</div>
+                                            <?php endfor;?>
+						
 					</div>
 				</div>
 			</div>

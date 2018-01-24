@@ -2,7 +2,7 @@
 <!-- banner -->
 	<div class="banner1">
 		<div class="container">
-			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="/">Главная</a> / <span>Услуга "<?php echo $name; ?>"</span></h2>
+			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="/">Главная</a> / <span><?php echo $service['name']; ?></span></h2>
 		</div>
 	</div>
 <!-- //banner -->
@@ -10,29 +10,27 @@
 	<div class="single">
 		<div class="container">
 			<div class="single-grids">
-				<div class="col-md-8 single-grid-left">
+				
+                            <div class="col-md-8 single-grid-left">
 					<div class="flex-slider-single animated wow slideInLeft" data-wow-delay=".5s">
 						<section class="slider">
 							<div class="flexslider">
 								<ul class="slides">
                                                                     <li>
                                                                         <div class="single-grid-left-grid">
-                                                                                <img src="<?php echo TMPL; ?>images/13.jpg" alt=" " class="img-responsive" />
+                                                                                <img src="<?php echo $service['img']; ?>" alt=" " class="img-responsive" />
                                                                                 <div class="single-grid-left-grid1">
                                                                                         <div class="single-grid-left-grid1-right">
-                                                                                                <h4>vel illum qui dolorem eum fugiat</h4>
-                                                                                                <p>By: Jan Mark </p>
+                                                                                                <h4><?php echo $service['name']; ?></h4>
+                                                                                                <p><?php echo $service['price']; ?></p>
                                                                                         </div>
                                                                                         <div class="clearfix"> </div>
-                                                                                        <p class="fugiat">Nam libero tempore, cum soluta nobis est eligendi optio 
-                                                                                                cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis 
-                                                                                                voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam 
-                                                                                                et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et 
-                                                                                                voluptates repudiandae sint et molestiae non recusandae. Itaque earum 
-                                                                                                rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores 
-                                                                                                alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                                                                        <p class="fugiat"><?php echo $service['text']; ?></p>
+                                                                                        <h3>Список: </h3>
                                                                                         <ul>
-                                                                                                
+                                                                                            <?php foreach(Services::replaseInfoByCards($service['info']) as $list): ?>   
+                                                                                                <li>-<?php echo $list; ?> </li>
+                                                                                            <?php endforeach;?>
                                                                                         </ul>
                                                                                 </div>
                                                                         </div>
@@ -72,12 +70,11 @@
                                             <div class="categories animated wow slideInUp" data-wow-delay=".5s">
                                                 <h3>Categories</h3>
                                                 <ul>
-                                                        <li><a href="#">Aliquam dapibus tincidunt</a></li>
-                                                        <li><a href="#">Donec sollicitudin molestie</a></li>
-                                                        <li><a href="#">Fusce feugiat malesuada odio</a></li>
-                                                        <li><a href="#">Cum sociis natoque penatibus</a></li>
-                                                        <li><a href="#">Magnis dis parturient montes</a></li>
-                                                        <li><a href="#">Donec sollicitudin molestie</a></li>
+                                                    <?php foreach($srvlst as $list): ?>   
+                                                        <li><a href="<?php echo DOMAIN . "/services/". $list['id']; ?>"><?php echo $list['name']; ?></a></li>
+                                                    <?php endforeach;?>
+                                                        
+
                                                 </ul>
                                             </div>
 						

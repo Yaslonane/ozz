@@ -285,11 +285,24 @@
  z-index: 5;
  visibility: visible;
  }
+ 
 }
+.banner1{
+        background: url("http://blog.local/views/default/images/3.jpg") no-repeat center !important;
+        /* background: url(../images/banner.jpg) no-repeat 0px 0px; */
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 240px;
+	padding: 6em 0 0;
+	text-align: center;
+    }
 </style>
 	<div class="banner1">
 		<div class="container">
-			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html">Home</a> / <span>Mail Us</span></h2>
+			<h2 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="/">Главная</a> / <span>Отзывы</span></h2>
 		</div>
 	</div>
 <!-- //banner -->

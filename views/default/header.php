@@ -69,11 +69,11 @@
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--francisco">
 						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item <?php if(self::$title == "Главная"):?> menu__item--current <?php endif;?>"><a href="/" class="menu__link"><span class="menu__helper">Home</span></a></li>
-							<li class="menu__item <?php if(self::$title == "Портфолио"):?> menu__item--current <?php endif;?>"><a href="portfolio" class="menu__link"><span class="menu__helper">portfolio</span></a></li>
-							<li class="menu__item <?php if(self::$title == "Услуги"):?> menu__item--current <?php endif;?>"><a href="services" class="menu__link"><span class="menu__helper">Services</span></a></li>
-							<li class="menu__item <?php if(self::$title == "Отзывы"):?> menu__item--current <?php endif;?>"><a href="reviews" class="menu__link"><span class="menu__helper">Reviews</span></a></li>
-							<li class="menu__item <?php if(self::$title == "О себе"):?> menu__item--current <?php endif;?>"><a href="about" class="menu__link"><span class="menu__helper">about</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Главная"):?> menu__item--current <?php endif;?>"><a href="<?php echo DOMAIN; ?>" class="menu__link"><span class="menu__helper">Главная</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Портфолио"):?> menu__item--current <?php endif;?>"><a href="<?php echo DOMAIN; ?>/portfolio" class="menu__link"><span class="menu__helper">Портфолио</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Услуги"):?> menu__item--current <?php endif;?>"><a href="<?php echo DOMAIN; ?>/services" class="menu__link"><span class="menu__helper">Услуги</span></a></li>
+							<li class="menu__item <?php if(self::$title == "Отзывы"):?> menu__item--current <?php endif;?>"><a href="<?php echo DOMAIN; ?>/reviews" class="menu__link"><span class="menu__helper">Отзывы</span></a></li>
+							<li class="menu__item <?php if(self::$title == "О себе"):?> menu__item--current <?php endif;?>"><a href="<?php echo DOMAIN; ?>/about" class="menu__link"><span class="menu__helper">О себе</span></a></li>
 						</ul>
 					</nav>
 					<div class="phone">
