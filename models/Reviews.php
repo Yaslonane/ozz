@@ -89,6 +89,8 @@ class Reviews{
         $name = $_POST['name'];
         $date = self::changeDateToUnix($_POST['date']);
         $text = $_POST['text'];
+        $location = $_POST['location'];
+        $event = $_POST['event'];
         $img = $_POST['img'];
         $vk = $_POST['vk'];
         $odnoklassniki = $_POST['odnoklassniki'];
@@ -98,11 +100,13 @@ class Reviews{
 
         
 
-        $stmt = $db->prepare("UPDATE reviews set name = :name, date = :date, text=:text, vk=:vk, odnoklassniki=:odnoklassniki, is_publication = :is_publication, email = :email, phone = :phone, img = :img WHERE id=:id");
+        $stmt = $db->prepare("UPDATE reviews set name = :name, date = :date, location=:location, event=:event, text=:text, vk=:vk, odnoklassniki=:odnoklassniki, is_publication = :is_publication, email = :email, phone = :phone, img = :img WHERE id=:id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':event', $event);
         $stmt->bindParam(':img', $img);
         $stmt->bindParam(':vk', $vk);
         $stmt->bindParam(':email', $email);

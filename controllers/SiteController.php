@@ -43,9 +43,11 @@ class SiteController{
     
     public function actionReviews(){
         
-        echo "reviews";
+        $reviews = Reviews::getAllReviews();
         
-        //require (ROOT . TMPL . 'contact.php');
+        //var_dump($reviews);
+        
+        require (ROOT . TMPL . 'reviews.php');
         
         return true;
     }

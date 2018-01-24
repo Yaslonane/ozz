@@ -14,7 +14,8 @@ class PortfolioController {
     public function actionIndex() { 
         
         //$portfolio = portfolio::getAlbums('active'); //вывод 
-        $albums = Gallery::getAlbumInImages();
+        //$albums = Gallery::getAlbumInImages();
+        $albums = Gallery::getAllAlbums();
         //var_dump($albums);
         require_once(ROOT . TMPL .'gallery.php');
         

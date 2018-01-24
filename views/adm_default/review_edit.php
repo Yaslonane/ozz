@@ -84,6 +84,14 @@ function openKCFinder(field) {
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Локация</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="location" value="<?php echo $review['location']?>"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Менроприятие</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="event" value="<?php echo $review['event']?>"></div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-2 col-sm-2 control-label">VK</label>
                         <div class="col-sm-10"><input type="text" class="form-control" name="vk" value="<?php echo $review['vk']?>"></div>
                     </div>

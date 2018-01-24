@@ -11,6 +11,7 @@
 <link href="<?php echo TMPL; ?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?php echo TMPL; ?>css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php echo LIB; ?>/fancybox/jquery.fancybox.css" type="text/css" media="screen" /> 
+<link rel="stylesheet" href="<?php echo LIB; ?>/font-awesome/css/font-awesome.min.css" />
 <!-- js -->
 <script type="text/javascript" src="<?php echo TMPL; ?>js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="<?php echo LIB; ?>/salvattore.min.js"></script>
