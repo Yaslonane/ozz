@@ -48,11 +48,24 @@ class Router{
 
                 if(file_exists($controllerFile)){
                     include_once ($controllerFile);
+                }else{
+                    header('Location: '. DOMAIN .'/404');
                 }
+                
                 
                 $controllerObject = new $controllerName;
 
-                $result = call_user_func_array(array($controllerObject, $actionName),$parameters);
+                //$result = call_user_func_array(array($controllerObject, $actionName),$parameters);
+                
+                if(method_exists($controllerObject, $actionName))
+                {
+                    $result = call_user_func_array(array($controllerObject, $actionName),$parameters);
+                }
+                else
+                {
+                    header('Location: '. DOMAIN .'/404');
+                    //echo "Метод ".$actionName." НЕ существует";
+                }
 
                 if($result != null){
                     break;

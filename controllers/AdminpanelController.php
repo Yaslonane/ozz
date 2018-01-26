@@ -105,6 +105,87 @@ class AdminpanelController extends AdminBase{
         }
     }
     
+    /*
+     * 
+     * sliders
+     * 
+     */
+    public function actionSlider(){
+        
+        self::checkAdmin();
+  
+        $slidersList = info::getSliders(true);
+        //var_dump($sliders);
+        
+        require_once (ROOT . ADM_TMPL . 'sliders.php');
+        
+        return true;
+        
+    }
+    public function actionSlideredit($id){
+        
+       self::checkAdmin();
+        
+        if(isset($_POST['save'])){
+            $message = info::updateSlider();
+            
+            //var_dump($_SESSION);
+            //var_dump($_POST);
+            //var_dump($_FILES);
+        }
+        $slider = info::getSlidersByID($id);
+        
+        //var_dump($service);
+        
+        require_once (ROOT . ADM_TMPL . 'slider_edit.php');
+        
+        return true;
+        
+    }
+    
+    public function actionCreateslider(){
+        
+        self::checkAdmin();
+        
+        if(isset($_POST['create'])){
+            
+            $id = info::createSlider($_POST['name']);
+            //var_dump($_SESSION);
+            //var_dump($_POST);
+            //var_dump($_FILES);
+            //var_dump($id);
+            header ('Location: '.DOMAIN .'/adminpanel/slideredit/'.$id);
+        }
+        
+    }
+    
+    public function actionDelslider($id){
+        
+        self::checkAdmin();
+
+        $del = info::delSlider($id);
+            //var_dump($_SESSION);
+            //var_dump($_POST);
+            //var_dump($_FILES);
+            //var_dump($id);
+        if($del){
+            header ('Location: '.DOMAIN .'/adminpanel/slider/'); 
+        }
+    }
+    
+    public function actionPublicslider($id){
+        
+        self::checkAdmin();
+
+        $pub = info::changeIsPublic($id);
+            //var_dump($_SESSION);
+            //var_dump($_POST);
+            //var_dump($_FILES);
+            //var_dump($id);
+        if($pub){
+            header ('Location: '.DOMAIN .'/adminpanel/slider/'); 
+        }
+    }
     
     /*
      * 

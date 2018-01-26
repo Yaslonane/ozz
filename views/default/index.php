@@ -129,31 +129,31 @@
 	<div class="services-bottom">
 		<div class="container">
 			<div class="col-md-3 services-bottom-left">
-				<p class="counter">89,147</p> 
-				<h3>Users</h3>
+				<p class="counter"><?php echo $info['total_clients']?></p> 
+				<h3>Клиентов</h3>
 				<div class="services-bottom-left-grid hvr-shutter-in-horizontal">
 					<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 				</div>
 			</div>
 			<div class="col-md-3 services-bottom-left">
-				<p class="counter">99,434</p> 
-				<h3>Loans</h3>
+				<p class="counter"><?php echo $info['total_work_time']?></p> 
+				<h3>Часов через объектив</h3>
 				<div class="services-bottom-left-grid hvr-shutter-in-horizontal">
-					<i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+					<i class="glyphicon glyphicon-camera" aria-hidden="true"></i>
 				</div>
 			</div>
 			<div class="col-md-3 services-bottom-left">
-				<p class="counter">76,454</p> 
-				<h3>Support</h3>
+				<p class="counter"><?php echo $info['total_source_fotos']?></p> 
+				<h3>Всего фото</h3>
 				<div class="services-bottom-left-grid hvr-shutter-in-horizontal">
-					<i class="glyphicon glyphicon-open" aria-hidden="true"></i>
+					<i class="glyphicon glyphicon-film" aria-hidden="true"></i>
 				</div>
 			</div>
 			<div class="col-md-3 services-bottom-left">
-				<p class="counter">45,000</p> 
-				<h3>Profit</h3>
+				<p class="counter"><?php echo $info['total_good_fotos']?></p> 
+				<h3>Обработанных фото</h3>
 				<div class="services-bottom-left-grid hvr-shutter-in-horizontal">
-					<i class="glyphicon glyphicon-yen" aria-hidden="true"></i>
+					<i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
@@ -190,7 +190,7 @@
                                                 <div role="tabpanel" class="tab-pane fade <?php if($i == 0) echo "in active";?>" id="<?php echo $reviews[$i]['id']; ?>" aria-labelledby="home-tab">
 							<div class="tabcontent-grids">
 								<img src="<?php echo $reviews[$i]['img']; ?>" alt=" " class="img-responsive" />
-								<h4><?php echo $reviews[$i]['event']; ?><span><?php echo $reviews[$i]['location']; ?></span></h4>
+								<h4><?php echo $reviews[$i]['event']; ?><span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> <?php echo $reviews[$i]['location']; ?></span></h4>
 								<p><?php echo $reviews[$i]['text']; ?></p>
 							</div>
 						</div>

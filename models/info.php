@@ -103,4 +103,114 @@ class info {
         else return "error!!!";
 
     }
+    
+    public static function getSliders($all = false){
+        $db = Db::getConnection();
+        
+        $sliders = array();
+        
+        $sql = "SELECT * FROM slider";
+        
+        if(!$all) $sql .= "  WHERE is_publication = 1";
+        
+        $sql .= ";";
+        
+        $result = $db->query($sql);
+        
+        $i = 0;
+        while ($row = $result->fetch()){ //перебираем массив полученный из бд и формируем массив для вывода на страницу сайта
+            foreach($row as $key => $value) { 
+                $sliders[$i][$key] = $value;
+            }
+            $i++;
+        }
+        
+        return $sliders; //возвращаем массив категорий
+    }
+    
+    public static function getSlidersByID($id){
+        $id = intval($id);
+        
+        if($id){
+            $db = Db::getConnection();
+            
+            $result = $db->query('SELECT * FROM slider WHERE id='.$id);
+            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $row = $result->fetch();
+            
+            foreach($row as $key => $value) { 
+                    $slider[$key] = $value;
+                }
+            
+            return $slider;
+        }
+    }
+    
+    public static function updateSlider(){
+        
+        $db = Db::getConnection();
+        
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $link = $_POST['link'];
+        $is_publication = $_POST['is_publication'];
+        $description = $_POST['description'];
+        $img = $_POST['img'];
+
+        
+        $stmt = $db->prepare("UPDATE slider set title = :title, link = :link,  is_publication = :is_publication, description=:description, img = :img WHERE id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':is_publication', $is_publication);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':link', $link);
+        $stmt->bindParam(':description', $description);
+        
+        $stmt->execute();
+        
+        if($stmt->rowCount() > 0) return "Запись обновлена";
+        else return "error!!!";
+
+    }
+    public static function createSlider($name){
+        
+        $db = Db::getConnection();
+        
+        $stmt = $db->prepare("INSERT INTO slider (title) VALUES (:title)");
+        $stmt->bindParam(':title', $name);
+        $stmt->execute();
+        
+        return $db->lastInsertId();
+    }
+    
+    public static function delSlider($id){
+        
+        $db = Db::getConnection();
+        
+        $stmt = $db->prepare("DELETE FROM slider WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        
+        return true;
+    }
+    
+    public static function changeIsPublic($id){
+        
+        $db = Db::getConnection();
+        $result = $db->query('SELECT * FROM slider WHERE id='.$id);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+        
+        $is_publication = $row['is_publication'];
+        
+        if($is_publication == 0) $is_publication_new = 1;
+        else $is_publication_new = 0;
+        
+        $stmt = $db->prepare("UPDATE slider SET is_publication = :is_publication WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':is_publication', $is_publication_new);
+        $stmt->execute();
+        
+        return true;
+    }
 }

@@ -36,6 +36,8 @@ class SiteController{
         
         $services = Services::getServicesCards();//вывод карточек услуг на главную
         $reviews = Reviews::getAllReviews();
+        $sliders = Info::getSliders();
+        //var_dump($sliders);
         
         require_once(ROOT . TMPL .'index.php');
         
@@ -63,6 +65,17 @@ class SiteController{
         //var_dump($inf);
         //echo "</pre>";
         require (ROOT . TMPL . 'about.php');
+        return true;
+    }
+    
+    public function action404(){
+        
+        //$reviews = Reviews::getAllReviews();
+        echo "ERROR!!! NOT FOUND. Sorry :(";
+        //var_dump($reviews);
+        
+        //require (ROOT . TMPL . 'reviews.php');
+        
         return true;
     }
 

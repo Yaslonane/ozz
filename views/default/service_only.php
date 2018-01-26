@@ -10,13 +10,12 @@
 	<div class="single">
 		<div class="container">
 			<div class="single-grids">
-				
-                            <div class="col-md-8 single-grid-left">
+			
+                        <div class="col-md-8 single-grid-left">
 					<div class="flex-slider-single animated wow slideInLeft" data-wow-delay=".5s">
 						<section class="slider">
 							<div class="flexslider">
-								<ul class="slides">
-                                                                    <li>
+								
                                                                         <div class="single-grid-left-grid">
                                                                                 <img src="<?php echo $service['img']; ?>" alt=" " class="img-responsive" />
                                                                                 <div class="single-grid-left-grid1">
@@ -34,9 +33,7 @@
                                                                                         </ul>
                                                                                 </div>
                                                                         </div>
-                                                                    </li>
-									
-								</ul>
+                                                                    
 							</div>
 						</section>
 

@@ -47,6 +47,12 @@ return array(
     'adminpanel/creategallery' => 'Adminpanel/creategallery',
     'adminpanel/gallery' => 'Adminpanel/gallery',
     
+    'adminpanel/slider/([0-9]+)' => 'Adminpanel/slideredit/$1',
+    'adminpanel/publicslider/([0-9]+)' => 'Adminpanel/publicslider/$1',
+    'adminpanel/delslider/([0-9]+)' => 'Adminpanel/delslider/$1',
+    'adminpanel/createslider' => 'Adminpanel/createslider',
+    'adminpanel/slider' => 'Adminpanel/slider',
+    
     'adminpanel/users/([0-9]+)' => 'Adminpanel/usersedit/$1',
     'adminpanel/users' => 'Adminpanel/users',
     //'adminpanel/cabinet/([0-9]+)' => 'AdminPanel/cabinet/$1',
@@ -59,6 +65,7 @@ return array(
     'about' => 'site/about',
     'portfolio/([0-9]+)' => 'portfolio/view/$1',
     'portfolio' => 'portfolio/index',
+    '404' => 'site/404',
     '' => 'site/index',
     
     

@@ -47,13 +47,13 @@ class Services {
         return $servicesList; //возвращаем массив
     }
     
-    public static function getServicesCards(){ //получаем все услуги
+    public static function getServicesCards($limit = 3){ //получаем все услуги
         
         $db = Db::getConnection(); //инициализируем подключение к бд
         
         $servicesList = array(); //инициализируем переменную 
         
-        $result = $db->query('SELECT id, name, title, price, info, img FROM services WHERE is_publication = 1'); // получаем из базы список
+        $result = $db->query('SELECT id, name, title, price, info, img FROM services WHERE is_publication = 1 LIMIT '.$limit); // получаем из базы список
         
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
